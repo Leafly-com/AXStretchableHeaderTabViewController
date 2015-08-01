@@ -12,11 +12,25 @@
   self = [super initWithFrame:frame];
   if (self) {
     // Initialization code
+      [self commonInit];
+  }
+  return self;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+
+-(void)commonInit
+{
     [self setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
     [self setTitleColor:[UIColor orangeColor] forState:UIControlStateSelected];
     [self setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
-  }
-  return self;
 }
 
 - (void)layoutSubviews
