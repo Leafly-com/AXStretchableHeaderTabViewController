@@ -9,7 +9,7 @@
 @interface AXTabBar ()
 @property (readonly, nonatomic) UIScrollView *containerView;
 @property (readonly, nonatomic) UIToolbar *toolbar;
-@property (copy, nonatomic) NSArray *tabBarItemButtons;
+
 @end
 
 @implementation AXTabBar {
