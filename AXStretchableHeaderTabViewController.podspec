@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.screenshots      = "https://raw.githubusercontent.com/akiroom/AXStretchableHeaderTabViewController/master/Screenshots/screenshot-stretchable.gif", "https://raw.githubusercontent.com/akiroom/AXStretchableHeaderTabViewController/master/Screenshots/screenshot-swipable.gif"
   s.license          = 'MIT'
   s.author           = { "Hiroki Akiyama" => "aki-hiroki@nifty.com" }
-  s.source           = { :git => "https://github.com/Leafly-com/AXStretchableHeaderTabViewController.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/Leafly-com/AXStretchableHeaderTabViewController.git" }
   s.social_media_url = 'https://twitter.com/akiroom'
 
   s.platform     = :ios, '7.0'
