@@ -43,7 +43,7 @@ static NSString * const AXStretchableHeaderTabViewControllerSelectedIndexKey = @
 {
   [_viewControllers enumerateObjectsUsingBlock:^(UIViewController *viewController, NSUInteger idx, BOOL *stop) {
     UIScrollView *scrollView = [self scrollViewWithSubViewController:viewController];
-    if (scrollView && scroll.observationInfo) {
+    if (scrollView && scrollView.observationInfo) {
       [scrollView removeObserver:self forKeyPath:@"contentOffset"];
     }
     [viewController removeFromParentViewController];
