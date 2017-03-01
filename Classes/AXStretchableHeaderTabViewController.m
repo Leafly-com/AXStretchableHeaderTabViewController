@@ -48,7 +48,7 @@ static NSString * const AXStretchableHeaderTabViewControllerSelectedIndexKey = @
   [super viewDidLoad];
 
   // Custom initialization
-  [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([AXStretchableHeaderTabViewController class]) owner:self options:nil];
+  [[NSBundle bundleForClass:[AXStretchableHeaderTabViewController class]] loadNibNamed:@"AXStretchableHeaderTabViewController" owner:self options:nil];
     
   _shouldBounceHeaderView = YES;
 
