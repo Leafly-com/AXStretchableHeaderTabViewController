@@ -15,26 +15,48 @@ static NSString * const AXStretchableHeaderTabViewControllerSelectedIndexKey = @
   CGFloat _headerViewTopConstraintConstant;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-  // MEMO:
-  // An inherited class does not load xib file.
-  // So, this code assigns class name of AXStretchableHeaderTabViewController clearly.
-  self = [super initWithNibName:NSStringFromClass([AXStretchableHeaderTabViewController class]) bundle:nibBundleOrNil];
-  if (self) {
-    // Custom initialization
-    _shouldBounceHeaderView = YES;
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//  // MEMO:
+//  // An inherited class does not load xib file.
+//  // So, this code assigns class name of AXStretchableHeaderTabViewController clearly.
+//  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//  if (self) {
+//      
+//  }
+//  return self;
+//}
 
-    _tabBar = [[AXTabBar alloc] init];
-    [_tabBar setDelegate:self];
-  }
-  return self;
+- (void)switchToIndex:(NSUInteger)index
+{
+    if (self.viewControllers == nil
+        || index >= self.viewControllers.count)
+        return;
+    
+    self.tabBar.selectedItem = self.tabBar.items[index];
+    [self.containerView setContentOffset:(CGPoint) { index *CGRectGetWidth(
+                                                                           self.containerView
+                                                                           .bounds),
+        self.containerView
+        .contentOffset
+        .y } animated:YES];
+    self.selectedIndex = index;
 }
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
+
+  // Custom initialization
+  [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([AXStretchableHeaderTabViewController class]) owner:self options:nil];
+    
+  _shouldBounceHeaderView = YES;
+
+  if (!_tabBar) {
+    _tabBar = [[AXTabBar alloc] init];
+  }
+    
+  [_tabBar setDelegate:self];
   [_tabBar sizeToFit];
   [self.view addSubview:_tabBar];
 }

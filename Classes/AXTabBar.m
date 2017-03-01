@@ -23,6 +23,22 @@
 {
   self = [super initWithFrame:frame];
   if (self) {
+      [self commonInit];
+  }
+  return self;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+
+-(void)commonInit
+{
     _tabBarButtonFont = [UIFont systemFontOfSize:14.0];
     
     _toolbar = [[UIToolbar alloc] init];
@@ -38,11 +54,9 @@
     _bottomSeparator = [CALayer layer];
     [_bottomSeparator setBackgroundColor:[[UIColor colorWithWhite:0.0 alpha:0.1] CGColor]];
     [self.layer addSublayer:_bottomSeparator];
-
+    
     _indicatorLayer = [CALayer layer];
     [self.layer addSublayer:_indicatorLayer];
-  }
-  return self;
 }
 
 - (void)layoutSubviews

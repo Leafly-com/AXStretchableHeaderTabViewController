@@ -24,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *containerView;
 @property (nonatomic) BOOL shouldBounceHeaderView;
 
+// only call after view has appeared
+- (void)switchToIndex:(NSUInteger)index;
+
 // Layout
 - (void)layoutHeaderViewAndTabBar;
 - (void)layoutViewControllers;
