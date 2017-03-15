@@ -59,6 +59,10 @@
     [_containerView.layer addSublayer:_indicatorLayer];
 }
 
+- (void)setUnderlineColor:(UIColor *)underlineColor {
+    _indicatorLayer.backgroundColor = underlineColor.CGColor;
+}
+
 - (void)layoutSubviews
 {
   [super layoutSubviews];
