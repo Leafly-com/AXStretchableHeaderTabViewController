@@ -53,10 +53,10 @@
     
     _bottomSeparator = [CALayer layer];
     [_bottomSeparator setBackgroundColor:[[UIColor colorWithWhite:0.0 alpha:0.1] CGColor]];
-    [self.layer addSublayer:_bottomSeparator];
+    [_containerView.layer addSublayer:_bottomSeparator];
     
     _indicatorLayer = [CALayer layer];
-    [self.layer addSublayer:_indicatorLayer];
+    [_containerView.layer addSublayer:_indicatorLayer];
 }
 
 - (void)layoutSubviews
